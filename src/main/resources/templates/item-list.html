@@ -5,21 +5,26 @@
   <title>一覧</title>
   <meta charset="utf-8" />
   <link rel="stylesheet" th:href="@{/css/style.css}">
+  <script type="module" th:src="@{/js/item-list.js}"></script>
 </head>
 
 <body>
   <h1>支出項目一覧</h1>
+  <button id="itemAdd" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#userInputModal">
+    項目を追加
+  </button>
+  <div th:replace="fragments/item-add :: item-add"></div>
   <table>
     <tr>
       <th>項目</th>
       <th>金額</th>
       <th>登録日時</th>
     </tr>
-  <tr th:each="item : ${items}">
-    <td th:text="${item.name}"></td>
-    <td th:text="${item.cost}"></td>
-    <td th:text="${item.time}"></td>
-  </tr>
+    <tr th:each="item : ${items}">
+      <td th:text="${item.name}"></td>
+      <td th:text="${item.cost}"></td>
+      <td th:text="${item.time}"></td>
+    </tr>
   </table>
 </body>
 
