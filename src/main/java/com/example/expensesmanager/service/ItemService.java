@@ -12,14 +12,18 @@ import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-@Transactional(readOnly = true)
 public class ItemService {
 
   private final ItemMapper itemMapper;
 
+  @Transactional(readOnly = true)
   public List<Item> findAll() {
-
     return itemMapper.findAll();
-
   }
+
+  @Transactional
+  public int add(String name, int cost) {
+    return itemMapper.insert(name, cost);
+  }
+
 }

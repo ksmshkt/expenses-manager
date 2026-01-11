@@ -11,4 +11,5 @@ public interface ItemMapper {
 
   List<Item> findAll();
 
+  int insert(String name, int cost);
 }
