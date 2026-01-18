@@ -1,6 +1,7 @@
 package com.example.expensesmanager.entity;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import lombok.Data;
 
@@ -13,6 +14,6 @@ public class Item {
 
   Integer cost;
 
-  LocalDate time;
+  LocalDateTime createdAt;
 
 }
