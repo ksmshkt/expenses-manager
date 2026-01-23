@@ -12,6 +12,6 @@ public interface ItemMapper {
 
   List<Item> findAll();
 
-  ItemBaseResponse insert(String name, Integer cost);
+  Item insert(String name, Integer cost);
 
 }

@@ -3,6 +3,13 @@
 <mapper namespace="com.example.expensesmanager.repository.ItemMapper">
 
   <select id="findAll" resultType="com.example.expensesmanager.entity.Item">
-    select * from items order by created_at desc;
+    SELECT id, name, cost, created_at FROM items ORDER BY created_at DESC;
   </select>
+
+  <select id="insert" resultType="com.example.expensesmanager.entity.Item">
+    INSERT INTO items (name, cost)
+    VALUES (#{name}, #{cost})
+    RETURNING id, name, cost, created_at
+  </select>
+
 </mapper>

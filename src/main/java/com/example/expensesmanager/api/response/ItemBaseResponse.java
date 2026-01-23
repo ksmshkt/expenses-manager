@@ -11,6 +11,6 @@ public class ItemBaseResponse {
 
   private Integer cost;
 
-  LocalDate time;
+  LocalDate createdAt;
 
 }

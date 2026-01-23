@@ -2,6 +2,9 @@ package com.example.expensesmanager.service;
 
 import java.util.List;
 
+import com.example.expensesmanager.api.request.ItemBaseRequest;
+import com.example.expensesmanager.api.response.ItemBaseResponse;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -22,8 +25,14 @@ public class ItemService {
   }
 
   @Transactional
-  public int add(String name, int cost) {
-    return itemMapper.insert(name, cost);
+  public ItemBaseResponse add(ItemBaseRequest itemBaseRequest) {
+    Item item = itemMapper.insert(itemBaseRequest.getName(), itemBaseRequest.getCost());
+
+    ItemBaseResponse res = new ItemBaseResponse();
+    BeanUtils.copyProperties(item, res);
+
+    return res;
+
   }
 
 }

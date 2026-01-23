@@ -1,5 +1,6 @@
 package com.example.expensesmanager.api.controller;
 
+import com.example.expensesmanager.api.response.ItemBaseResponse;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,10 +20,8 @@ public class ItemApiController {
 
   @PostMapping("/add")
   public ItemBaseResponse addItem(@RequestBody ItemBaseRequest itemBaseRequest) {
-    itemService.add(itemBaseRequest.getName(), itemBaseRequest.getCost());
-    
-    ItemBaseResponse response = new ItemBaseResponse();
-    
-    return ItemBaseResponse
+    ItemBaseResponse res = itemService.add(itemBaseRequest);
+
+    return res;
   }
 }
