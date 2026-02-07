@@ -4,6 +4,7 @@ const overlay = document.getElementById("modalOverlay");
 const form = document.getElementById("itemForm");
 const openModal = () => overlay.style.display = "flex";
 const closeModal = () => overlay.style.display = "none";
+const deleteBtn = document.getElementById("deleteBtn");
 
 // 閉じる（×）
 document.getElementById("closeModalBtn").addEventListener("click", () => {
@@ -20,6 +21,7 @@ overlay.addEventListener("click", (e) => {
 // モーダル表示（追加時）
 document.getElementById("itemAdd").addEventListener("click", e => {
   form.reset();
+  deleteBtn.style.display = "none";
   openModal();
 })
 
@@ -34,6 +36,7 @@ document.getElementById("items-body").addEventListener("click", e => {
   form.name.value = name;
   form.cost.value = cost;
 
+  deleteBtn.style.display = "inline-block";
   openModal();
 })
 
@@ -92,6 +95,26 @@ async function updateItem(id, data) {
   updateRow(item);
 }
 
+// 削除API呼び出し
+deleteBtn.addEventListener("click", async () => {
+  const id = form.id.value;
+  if (!id) return;
+
+  if (!confirm("本当に削除しますか？")) return;
+
+  const res = await fetch(`/expenses-manager/api/items/${id}`, {
+      method: 'DELETE'
+    });
+
+    if (!res.ok) {
+      alert('削除失敗');
+      return;
+    }
+
+  removeRow(id);
+  closeModal();
+});
+
 // 追加した項目を一覧に追加
 const appendItem = item => {
   const tbody = document.getElementById('items-body');
@@ -123,4 +146,12 @@ function updateRow(item) {
 
   row.dataset.name = item.name;
   row.dataset.cost = item.cost;
+}
+
+// 画面から行を削除
+function removeRow(id) {
+  const row = document.querySelector(`#items-body tr[data-id='${id}']`);
+  if (row) {
+    row.remove();
+  }
 }

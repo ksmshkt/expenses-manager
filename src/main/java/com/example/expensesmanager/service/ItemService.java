@@ -45,4 +45,13 @@ public class ItemService {
     return res;
   }
 
+  @Transactional
+  public void delete(Long id) {
+    int affected = itemMapper.delete(id);
+
+    if (affected == 0) {
+      throw new IllegalArgumentException("Item not found. id=" + id);
+    }
+  }
+
 }

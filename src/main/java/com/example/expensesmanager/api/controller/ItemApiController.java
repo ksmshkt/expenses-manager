@@ -1,6 +1,7 @@
 package com.example.expensesmanager.api.controller;
 
 import com.example.expensesmanager.api.response.ItemBaseResponse;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.expensesmanager.api.request.ItemBaseRequest;
@@ -27,6 +28,13 @@ public class ItemApiController {
     ItemBaseResponse res = itemService.update(itemBaseRequest);
 
     return res;
+  }
+
+  @DeleteMapping("/{id}")
+  public ResponseEntity<Void> deleteItem(@PathVariable Long id) {
+    itemService.delete(id);
+
+    return ResponseEntity.noContent().build();
   }
 
 }

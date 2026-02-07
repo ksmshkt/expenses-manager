@@ -22,4 +22,9 @@
     WHERE id = #{id}
   </update>
 
+  <delete id="delete" parameterType="long">
+    DELETE FROM items
+    WHERE id = #{id}
+  </delete>
+  
 </mapper>

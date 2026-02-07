@@ -81,6 +81,17 @@ input {
   box-sizing: border-box;
 }
 
+.form-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+}
+
+.form-actions .danger {
+  background-color: #e74c3c;
+  color: #fff;
+}
+
 /* 追加ボタン */
 .icon-btn {
   width: 40px;

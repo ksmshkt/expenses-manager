@@ -19,4 +19,5 @@ public interface ItemMapper {
 
   int update(@Param("id") Long id, @Param("name") String name, @Param("cost") Integer cost);
 
+  int delete(@Param("id") Long id);
 }
