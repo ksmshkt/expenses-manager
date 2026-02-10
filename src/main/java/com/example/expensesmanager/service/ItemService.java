@@ -20,8 +20,8 @@ public class ItemService {
   private final ItemMapper itemMapper;
 
   @Transactional(readOnly = true)
-  public List<Item> findAll() {
-    return itemMapper.findAll();
+  public List<Item> findByYearAndMonth(int year, int month) {
+    return itemMapper.findByYearAndMonth(year, month);
   }
 
   @Transactional

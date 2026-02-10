@@ -2,8 +2,12 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.example.expensesmanager.repository.ItemMapper">
 
-  <select id="findAll" resultType="com.example.expensesmanager.entity.Item">
-    SELECT id, name, cost, created_at FROM items ORDER BY created_at DESC;
+  <select id="findByYearAndMonth" resultType="com.example.expensesmanager.entity.Item">
+    SELECT id, name, cost, created_at
+    FROM items
+    WHERE EXTRACT(YEAR FROM created_at) = #{year}
+    AND EXTRACT(MONTH FROM created_at) = #{month}
+    ORDER BY created_at DESC
   </select>
 
   <select id="selectById" resultType="com.example.expensesmanager.entity.Item">
@@ -26,5 +30,5 @@
     DELETE FROM items
     WHERE id = #{id}
   </delete>
-  
+
 </mapper>
