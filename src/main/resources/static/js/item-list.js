@@ -22,6 +22,7 @@ overlay.addEventListener("click", (e) => {
 document.getElementById("itemAdd").addEventListener("click", e => {
   form.reset();
   deleteBtn.style.display = "none";
+  document.getElementById("createdAt").value = new Date().toISOString().split("T")[0];
   openModal();
 })
 
@@ -30,11 +31,12 @@ document.getElementById("items-body").addEventListener("click", e => {
   const row = e.target.closest('[data-item]');
   if (!row) return;
 
-  const { id, name, cost } = row.dataset;
+  const { id, name, cost, createdAt } = row.dataset;
 
   form.id.value = id;
   form.name.value = name;
   form.cost.value = cost;
+  form.createdAt.value = createdAt;
 
   deleteBtn.style.display = "inline-block";
   openModal();
@@ -50,6 +52,7 @@ document.getElementById("itemForm").addEventListener("submit", async function(e)
     id: document.getElementById("id").value.trim(),
     name: document.getElementById("name").value,
     cost: document.getElementById("cost").value,
+    createdAt: document.getElementById("createdAt").value
   };
 
   if (data.id) {
@@ -124,6 +127,7 @@ const appendItem = item => {
   tr.dataset.id = item.id;
   tr.dataset.name = item.name;
   tr.dataset.cost = item.cost;
+  tr.dataset.createdAt = item.createdAt;
 
   tr.innerHTML = `
     <td>${item.name}</td>
@@ -146,6 +150,7 @@ function updateRow(item) {
 
   row.dataset.name = item.name;
   row.dataset.cost = item.cost;
+  row.dataset.createdAt = item.createdAt;
 }
 
 // 画面から行を削除

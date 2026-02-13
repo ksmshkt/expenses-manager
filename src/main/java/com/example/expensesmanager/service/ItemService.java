@@ -34,8 +34,9 @@ public class ItemService {
   }
 
   @Transactional
-  public ItemBaseResponse add(ItemBaseRequest itemBaseRequest) {
-    Item item = itemMapper.insert(itemBaseRequest.getName(), itemBaseRequest.getCost());
+  public ItemBaseResponse add(ItemBaseRequest request) {
+
+    Item item = itemMapper.insert(request.getName(), request.getCost(), request.getCreatedAt().atStartOfDay());
 
     ItemBaseResponse res = new ItemBaseResponse();
     BeanUtils.copyProperties(item, res);
@@ -44,9 +45,9 @@ public class ItemService {
   }
 
   @Transactional
-  public ItemBaseResponse update(ItemBaseRequest itemBaseRequest) {
-    itemMapper.update(itemBaseRequest.getId(), itemBaseRequest.getName(), itemBaseRequest.getCost());
-    Item item = itemMapper.selectById(itemBaseRequest.getId());
+  public ItemBaseResponse update(ItemBaseRequest request) {
+    itemMapper.update(request.getId(), request.getName(), request.getCost(), request.getCreatedAt().atStartOfDay());
+    Item item = itemMapper.selectById(request.getId());
 
     ItemBaseResponse res = new ItemBaseResponse();
     BeanUtils.copyProperties(item, res);

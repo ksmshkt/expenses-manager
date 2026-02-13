@@ -15,14 +15,14 @@
   </select>
 
   <select id="insert" resultType="com.example.expensesmanager.entity.Item">
-    INSERT INTO items (name, cost)
-    VALUES (#{name}, #{cost})
+    INSERT INTO items (name, cost, created_at)
+    VALUES (#{name}, #{cost}, #{createdAt})
     RETURNING id, name, cost, created_at
   </select>
 
   <update id="update">
     UPDATE items
-    SET name = #{name}, cost = #{cost}
+    SET name = #{name}, cost = #{cost}, created_at = #{createdAt}
     WHERE id = #{id}
   </update>
 

@@ -9,10 +9,17 @@
           <label>item</label>
           <input type="text" id="name" maxlength="255" required>
         </div>
+
         <div class="form-group">
           <label>cost (¥)</label>
           <input type="number" id="cost" min="0" step="1" required>
         </div>
+
+        <div class="form-group">
+          <label>date</label>
+          <input type="date" id="createdAt" required>
+        </div>
+
         <div class="form-actions">
           <button type="submit">save</button>
           <button type="button" id="deleteBtn" class="danger">delete</button>

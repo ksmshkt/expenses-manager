@@ -26,5 +26,16 @@ export function validateItemForm() {
     return false;
   }
 
+  if (!createdAt) {
+    alert("createdAt を入力してください");
+    return false;
+  }
+
+  const dateRegex = /^\d{4}-\d{2}-\d{2}$/;
+  if (!dateRegex.test(createdAt)) {
+    alert("作成日は yyyy-MM-dd 形式で入力してください");
+    return false;
+  }
+
   return true;
 }
