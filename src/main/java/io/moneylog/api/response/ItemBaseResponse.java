@@ -1,4 +1,4 @@
-package com.example.expensesmanager.api.response;
+package io.moneylog.api.response;
 
 import java.time.LocalDate;
 

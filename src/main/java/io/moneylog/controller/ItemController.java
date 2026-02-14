@@ -1,18 +1,16 @@
-package com.example.expensesmanager.controller;
+package io.moneylog.controller;
 
 import java.time.LocalDate;
-import java.util.List;
 
-import com.example.expensesmanager.dto.ItemSummary;
+import io.moneylog.dto.ItemSummary;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.example.expensesmanager.entity.Item;
-import com.example.expensesmanager.form.ItemForm;
-import com.example.expensesmanager.service.ItemService;
+import io.moneylog.form.ItemForm;
+import io.moneylog.service.ItemService;
 
 import lombok.RequiredArgsConstructor;
 

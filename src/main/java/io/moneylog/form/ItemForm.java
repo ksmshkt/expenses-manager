@@ -1,4 +1,4 @@
-package com.example.expensesmanager.form;
+package io.moneylog.form;
 
 import lombok.Data;
 

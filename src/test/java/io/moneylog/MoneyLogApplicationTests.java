@@ -1,13 +1,13 @@
-package com.example.expensesmanager;
+package io.moneylog;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ExpensesManagerApplicationTests {
+class MoneyLogApplicationTests {
 
-	@Test
-	void contextLoads() {
-	}
+  @Test
+  void contextLoads() {
+  }
 
 }

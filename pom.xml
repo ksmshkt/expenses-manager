@@ -12,11 +12,11 @@
     <relativePath/>
   </parent>
 
-  <groupId>com.example</groupId>
-  <artifactId>expenses-manager</artifactId>
+  <groupId>io</groupId>
+  <artifactId>money-log</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>expenses-manager</name>
-  <description>Expenses manager application</description>
+  <name>Money Log</name>
+  <description>Money Log application</description>
 
   <properties>
     <java.version>21</java.version>

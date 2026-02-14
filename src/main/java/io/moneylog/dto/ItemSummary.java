@@ -1,6 +1,6 @@
-package com.example.expensesmanager.dto;
+package io.moneylog.dto;
 
-import com.example.expensesmanager.entity.Item;
+import io.moneylog.entity.Item;
 
 import java.util.List;
 

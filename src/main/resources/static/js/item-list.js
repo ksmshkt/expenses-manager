@@ -66,7 +66,7 @@ document.getElementById("itemForm").addEventListener("submit", async function(e)
 
 // 追加API呼び出し
 async function addItem(data) {
-  const res = await fetch('/expenses-manager/api/items/add', {
+  const res = await fetch('/money-log/api/items/add', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -83,7 +83,7 @@ async function addItem(data) {
 
 // 更新API呼び出し
 async function updateItem(id, data) {
-  const res = await fetch(`/expenses-manager/api/items/${id}`, {
+  const res = await fetch(`/money-log/api/items/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data)
@@ -105,7 +105,7 @@ deleteBtn.addEventListener("click", async () => {
 
   if (!confirm("本当に削除しますか？")) return;
 
-  const res = await fetch(`/expenses-manager/api/items/${id}`, {
+  const res = await fetch(`/money-log/api/items/${id}`, {
       method: 'DELETE'
     });
 

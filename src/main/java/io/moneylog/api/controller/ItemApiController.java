@@ -1,11 +1,11 @@
-package com.example.expensesmanager.api.controller;
+package io.moneylog.api.controller;
 
-import com.example.expensesmanager.api.response.ItemBaseResponse;
+import io.moneylog.api.response.ItemBaseResponse;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import com.example.expensesmanager.api.request.ItemBaseRequest;
-import com.example.expensesmanager.service.ItemService;
+import io.moneylog.api.request.ItemBaseRequest;
+import io.moneylog.service.ItemService;
 
 import lombok.RequiredArgsConstructor;
 

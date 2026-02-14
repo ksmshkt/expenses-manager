@@ -1,4 +1,4 @@
-package com.example.expensesmanager.api.request;
+package io.moneylog.api.request;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;

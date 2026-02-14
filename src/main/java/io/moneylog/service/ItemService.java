@@ -1,16 +1,16 @@
-package com.example.expensesmanager.service;
+package io.moneylog.service;
 
 import java.util.List;
 
-import com.example.expensesmanager.api.request.ItemBaseRequest;
-import com.example.expensesmanager.api.response.ItemBaseResponse;
-import com.example.expensesmanager.dto.ItemSummary;
+import io.moneylog.api.request.ItemBaseRequest;
+import io.moneylog.api.response.ItemBaseResponse;
+import io.moneylog.dto.ItemSummary;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.example.expensesmanager.entity.Item;
-import com.example.expensesmanager.repository.ItemMapper;
+import io.moneylog.entity.Item;
+import io.moneylog.repository.ItemMapper;
 
 import lombok.RequiredArgsConstructor;
 

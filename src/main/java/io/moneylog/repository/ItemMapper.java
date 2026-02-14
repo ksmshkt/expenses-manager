@@ -1,12 +1,11 @@
-package com.example.expensesmanager.repository;
+package io.moneylog.repository;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.example.expensesmanager.entity.Item;
+import io.moneylog.entity.Item;
 import org.apache.ibatis.annotations.Param;
 
 @Mapper
