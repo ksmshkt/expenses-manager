@@ -3,13 +3,20 @@
 <mapper namespace="io.moneylog.repository.ItemMapper">
 
   <select id="findByYearAndMonth" resultType="io.moneylog.entity.Item">
-    SELECT id, name, cost, spent_at
-    FROM items
-    WHERE EXTRACT(YEAR FROM spent_at) = #{year}
-    AND EXTRACT(MONTH FROM spent_at) = #{month}
-    ORDER BY spent_at DESC
+    SELECT
+    i.id,
+    i.name,
+    i.cost,
+    i.spent_at,
+    i.category_id,
+    c.name AS category_name
+    FROM items i
+    JOIN categories c ON i.category_id = c.id
+    WHERE EXTRACT(YEAR FROM i.spent_at) = #{year}
+    AND EXTRACT(MONTH FROM i.spent_at) = #{month}
+    ORDER BY i.spent_at DESC
   </select>
-
+  
   <select id="selectById" resultType="io.moneylog.entity.Item">
     SELECT id, name, cost, spent_at FROM items WHERE id = #{id};
   </select>

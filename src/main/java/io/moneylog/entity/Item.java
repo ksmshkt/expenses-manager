@@ -2,17 +2,18 @@ package io.moneylog.entity;
 
 import java.time.LocalDate;
 
-import lombok.Data;
+public record Item(
+        Long id,
 
-@Data
-public class Item {
+        String name,
 
-  Long id;
+        Integer cost,
 
-  String name;
+        LocalDate spentAt,
 
-  Integer cost;
+        Long categoryId,
 
-  LocalDate spentAt;
-
+        String categoryName
+        
+) {
 }

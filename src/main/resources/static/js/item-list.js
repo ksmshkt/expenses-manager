@@ -31,12 +31,13 @@ document.getElementById("items-body").addEventListener("click", e => {
   const row = e.target.closest('[data-item]');
   if (!row) return;
 
-  const { id, name, cost, spentAt } = row.dataset;
+  const { id, name, cost, spentAt, categoryId } = row.dataset;
 
   form.id.value = id;
   form.name.value = name;
   form.cost.value = cost;
   form.spentAt.value = spentAt;
+  form.categoryId.value = categoryId;
 
   deleteBtn.style.display = "inline-block";
   openModal();

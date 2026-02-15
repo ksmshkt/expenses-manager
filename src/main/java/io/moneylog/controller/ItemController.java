@@ -3,6 +3,7 @@ package io.moneylog.controller;
 import java.time.LocalDate;
 
 import io.moneylog.dto.ItemSummary;
+import io.moneylog.service.CategoryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,6 +20,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class ItemController {
 
+  private final CategoryService categoryService;
   private final ItemService itemService;
 
   /**
@@ -45,6 +47,7 @@ public class ItemController {
     model.addAttribute("totalCost", itemSummary.totalCost());
     model.addAttribute("currentYear", y);
     model.addAttribute("currentMonth", m);
+    model.addAttribute("categories", categoryService.findAll());
 
     return "item-list";
   }

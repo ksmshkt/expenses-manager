@@ -25,7 +25,7 @@ public class ItemService {
     List<Item> items = itemMapper.findByYearAndMonth(year, month);
 
     int totalCost = items.stream()
-            .map(Item::getCost)
+            .map(Item::cost)
             .filter(cost -> cost != null)
             .mapToInt(Integer::intValue)
             .sum();
